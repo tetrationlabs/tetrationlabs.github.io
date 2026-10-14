@@ -80,22 +80,16 @@
 			animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 		}
 
+		h1 { margin: 0 0 2.5rem; }
+
 		.logo {
 			display: block;
-			width: min(100%, 26rem);
+			width: min(100%, 34rem);
 			height: auto;
-			margin: 0 auto 2.75rem;
+			margin: 0 auto;
 		}
 
-		h1 {
-			margin: 0 0 1rem;
-			font-size: clamp(1.75rem, 4.5vw, 2.75rem);
-			font-weight: 600;
-			line-height: 1.15;
-			letter-spacing: -0.02em;
-		}
-
-		h1 .accent { color: var(--accent); }
+		.lead { color: var(--text); font-weight: 500; }
 
 		p {
 			margin: 0 auto 2.25rem;
@@ -105,40 +99,25 @@
 			line-height: 1.65;
 		}
 
-		.cta {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.6rem;
-			padding: 0.9rem 1.5rem;
-			border-radius: 999px;
-			background: var(--accent);
-			color: var(--navy-deep);
-			font-weight: 600;
-			font-size: 1rem;
-			text-decoration: none;
-			box-shadow: 0 10px 30px -10px rgba(68, 172, 255, 0.7);
-			transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-		}
-
-		.cta:hover {
-			transform: translateY(-2px);
-			background: #66bcff;
-			box-shadow: 0 14px 36px -10px rgba(68, 172, 255, 0.85);
-		}
-
-		.cta:focus-visible {
-			outline: 2px solid var(--text);
-			outline-offset: 3px;
-		}
-
-		.cta svg { width: 1.1em; height: 1.1em; transition: transform 0.2s ease; }
-		.cta:hover svg { transform: translateX(3px); }
-
 		.email {
-			display: block;
-			margin-top: 1rem;
-			color: var(--muted);
-			font-size: 0.9rem;
+			color: var(--accent);
+			font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+			font-weight: 500;
+			text-decoration: none;
+			border-bottom: 1px solid rgba(68, 172, 255, 0.4);
+			padding-bottom: 2px;
+			transition: color 0.2s ease, border-color 0.2s ease;
+		}
+
+		.email:hover {
+			color: #66bcff;
+			border-color: currentColor;
+		}
+
+		.email:focus-visible {
+			outline: 2px solid var(--text);
+			outline-offset: 4px;
+			border-radius: 2px;
 		}
 
 		footer {
@@ -156,21 +135,16 @@
 
 		@media (prefers-reduced-motion: reduce) {
 			.hero { animation: none; }
-			.cta, .cta svg { transition: none; }
+			.email { transition: none; }
 		}
 	</style>
 </head>
 <body>
 	<main>
 		<section class="hero">
-			<img class="logo" src="logo.svg" alt="Tetration Labs" width="516" height="97">
-			<h1>You found us<span class="accent">.</span></h1>
-			<p>We invest and help to accelerate the next big technologies. If you have a cool idea and a great team, drop us a note.</p>
-			<a class="cta" href="mailto:hi@tetrationlabs.com">
-				Get in touch
-				<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-			</a>
-			<span class="email">hi@tetrationlabs.com</span>
+			<h1><img class="logo" src="logo.svg" alt="Tetration Labs" width="516" height="97"></h1>
+			<p><span class="lead">You found us.</span> We invest and help to accelerate the next big technologies. If you have a cool idea and a great team, drop us a note.</p>
+			<a class="email" href="mailto:hi@tetrationlabs.com">hi@tetrationlabs.com</a>
 		</section>
 	</main>
 	<footer>&copy; <span id="year">2026</span> Tetration Labs</footer>
