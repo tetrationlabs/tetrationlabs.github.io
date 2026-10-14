@@ -1,38 +1,179 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="google-site-verification" content="Lel04q8kB7XtYClhg9SATXPZN84TkTJ2g9u6ImiO-S8" />
-		<style type="text/css">
-			body {
-				background-color: #062148;
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="Lel04q8kB7XtYClhg9SATXPZN84TkTJ2g9u6ImiO-S8">
+	<title>Tetration Labs</title>
+	<meta name="description" content="Tetration Labs invests in and helps accelerate the next big technologies.">
+	<meta name="theme-color" content="#062148">
+	<link rel="canonical" href="https://www.tetrationlabs.com/">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23062148'/%3E%3Cpath d='M7 9h14v3.2h-5.4V25h-3.2V12.2H7z' fill='%23fff'/%3E%3Ccircle cx='24.5' cy='8.5' r='2.5' fill='%2344acff'/%3E%3C/svg%3E">
 
-			}
-			.center {
-  				width: 800px; 
-  				text-align: center;
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
-  			}
-			p {
-				padding-top: 15px;
-				color: #FFFFFF;
-				font-size: 1.2rem;
-  				font-family: Helvetica, Arial, sans-serif;
-			}
-			a{
-			text-decoration:none;
-			color: #FFFFFF;
-			}
-		</style>
-		<title>Tetration Labs</title>
-	</head>
-	<body>
-		<div class="center">
-			<object data="logo.svg"></object>
-			<p>You found us! We invest and help to accelerate the next big technologies.<br/> If you have a cool idea and a great team, drop us a note at <a href="mailto:hi@tetrationlabs.com">hi@tetrationlabs.com</a></p>
-		</div>
-	</body>
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.tetrationlabs.com/">
+	<meta property="og:title" content="Tetration Labs">
+	<meta property="og:description" content="We invest and help to accelerate the next big technologies.">
+	<meta property="og:image" content="https://www.tetrationlabs.com/logo.svg">
+	<meta name="twitter:card" content="summary">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<style>
+		:root {
+			--navy: #062148;
+			--navy-deep: #03142e;
+			--accent: #44acff;
+			--text: #ffffff;
+			--muted: rgba(255, 255, 255, 0.72);
+			--line: rgba(255, 255, 255, 0.08);
+		}
+
+		*, *::before, *::after { box-sizing: border-box; }
+
+		html, body { height: 100%; }
+
+		body {
+			margin: 0;
+			min-height: 100svh;
+			display: flex;
+			flex-direction: column;
+			background-color: var(--navy);
+			background-image:
+				radial-gradient(60rem 40rem at 50% -10%, rgba(68, 172, 255, 0.22), transparent 60%),
+				radial-gradient(50rem 30rem at 100% 110%, rgba(68, 172, 255, 0.10), transparent 60%),
+				linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+			color: var(--text);
+			font-family: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+			-webkit-font-smoothing: antialiased;
+			overflow-x: hidden;
+		}
+
+		/* Faint grid that fades out toward the edges */
+		body::before {
+			content: "";
+			position: fixed;
+			inset: 0;
+			pointer-events: none;
+			background-image:
+				linear-gradient(var(--line) 1px, transparent 1px),
+				linear-gradient(90deg, var(--line) 1px, transparent 1px);
+			background-size: 56px 56px;
+			mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+			-webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+		}
+
+		main {
+			position: relative;
+			flex: 1;
+			display: grid;
+			place-items: center;
+			padding: 4rem 1.5rem;
+		}
+
+		.hero {
+			width: 100%;
+			max-width: 44rem;
+			text-align: center;
+			animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+		}
+
+		.logo {
+			display: block;
+			width: min(100%, 26rem);
+			height: auto;
+			margin: 0 auto 2.75rem;
+		}
+
+		h1 {
+			margin: 0 0 1rem;
+			font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+			font-weight: 600;
+			line-height: 1.15;
+			letter-spacing: -0.02em;
+		}
+
+		h1 .accent { color: var(--accent); }
+
+		p {
+			margin: 0 auto 2.25rem;
+			max-width: 34rem;
+			color: var(--muted);
+			font-size: clamp(1rem, 2.2vw, 1.125rem);
+			line-height: 1.65;
+		}
+
+		.cta {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.6rem;
+			padding: 0.9rem 1.5rem;
+			border-radius: 999px;
+			background: var(--accent);
+			color: var(--navy-deep);
+			font-weight: 600;
+			font-size: 1rem;
+			text-decoration: none;
+			box-shadow: 0 10px 30px -10px rgba(68, 172, 255, 0.7);
+			transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+		}
+
+		.cta:hover {
+			transform: translateY(-2px);
+			background: #66bcff;
+			box-shadow: 0 14px 36px -10px rgba(68, 172, 255, 0.85);
+		}
+
+		.cta:focus-visible {
+			outline: 2px solid var(--text);
+			outline-offset: 3px;
+		}
+
+		.cta svg { width: 1.1em; height: 1.1em; transition: transform 0.2s ease; }
+		.cta:hover svg { transform: translateX(3px); }
+
+		.email {
+			display: block;
+			margin-top: 1rem;
+			color: var(--muted);
+			font-size: 0.9rem;
+		}
+
+		footer {
+			position: relative;
+			padding: 1.5rem;
+			text-align: center;
+			color: rgba(255, 255, 255, 0.45);
+			font-size: 0.85rem;
+		}
+
+		@keyframes rise {
+			from { opacity: 0; transform: translateY(12px); }
+			to   { opacity: 1; transform: none; }
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.hero { animation: none; }
+			.cta, .cta svg { transition: none; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<section class="hero">
+			<img class="logo" src="logo.svg" alt="Tetration Labs" width="516" height="97">
+			<h1>You found us<span class="accent">.</span></h1>
+			<p>We invest and help to accelerate the next big technologies. If you have a cool idea and a great team, drop us a note.</p>
+			<a class="cta" href="mailto:hi@tetrationlabs.com">
+				Get in touch
+				<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+			</a>
+			<span class="email">hi@tetrationlabs.com</span>
+		</section>
+	</main>
+	<footer>&copy; <span id="year">2026</span> Tetration Labs</footer>
+	<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
 </html>
